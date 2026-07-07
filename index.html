@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BURNote — write it down, then let it go</title>
+  <meta name="description" content="Write down what's weighing you down, then burn it. Nothing is ever saved." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- particle overlay for the burn -->
+  <canvas id="burn-canvas" aria-hidden="true"></canvas>
+
+  <div class="corner-controls">
+    <button id="mute-toggle" class="icon-btn" type="button" aria-pressed="false" aria-label="Mute fire sound" title="Sound">
+      <svg class="icon icon-sound" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <svg class="icon icon-muted" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+    <button id="theme-toggle" class="icon-btn" type="button" aria-label="Switch theme" title="Theme">
+      <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 7 7 0 1 0 20 14.5z" fill="currentColor"/></svg>
+    </button>
+  </div>
+
+  <main class="stage">
+    <header class="masthead">
+      <h1 class="wordmark">BUR<span class="wordmark-note">Note</span></h1>
+      <p class="tagline">Write down what's weighing you down — then let it go.</p>
+    </header>
+
+    <section class="ritual" id="ritual">
+      <div class="paper" id="paper">
+        <div class="paper-inner">
+          <textarea id="note" class="note" placeholder="What do you want to release?&#10;&#10;Write it all here. No one will ever read it — not even this page." spellcheck="true" autocomplete="off"></textarea>
+        </div>
+        <div class="paper-glow" aria-hidden="true"></div>
+      </div>
+
+      <button id="burn-btn" class="burn-btn" type="button" disabled>
+        <span class="burn-btn-label">Burn it</span>
+        <span class="burn-btn-flame" aria-hidden="true"></span>
+      </button>
+      <p class="privacy-note">Nothing is saved, sent, or stored. It only lives here until you burn it.</p>
+    </section>
+
+    <section class="afterglow" id="afterglow" hidden>
+      <p class="affirmation" id="affirmation">It's gone. Breathe.</p>
+      <p class="released-count" id="released-count"></p>
+      <button id="reset-btn" class="reset-btn" type="button">Write another</button>
+    </section>
+  </main>
+
+  <script src="burn.js"></script>
+</body>
+</html>

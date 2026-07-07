@@ -1,0 +1,1 @@
+A note where you write down what is weighing you down or whatever you want to let go then burn it down.
